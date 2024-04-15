@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.IntegrationTests", "Persistence.IntegrationTests\Persistence.IntegrationTests.csproj", "{756BD8FC-9D2A-4BE3-AD19-0E483F3D3BE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUI", "BlazorUI\BlazorUI.csproj", "{A8057907-F6D0-4740-B2D1-F23208802748}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{756BD8FC-9D2A-4BE3-AD19-0E483F3D3BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{756BD8FC-9D2A-4BE3-AD19-0E483F3D3BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{756BD8FC-9D2A-4BE3-AD19-0E483F3D3BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8057907-F6D0-4740-B2D1-F23208802748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8057907-F6D0-4740-B2D1-F23208802748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8057907-F6D0-4740-B2D1-F23208802748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8057907-F6D0-4740-B2D1-F23208802748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{D34B7C84-6AFD-4118-AE00-DEA473220211} = {284D9422-188B-4707-AC29-72DA44DF26D0}
 		{21D39398-181B-4B26-AE37-CDE95E7607E2} = {378A0D8D-CBC1-40B6-A9AC-4D3A47CAA834}
 		{756BD8FC-9D2A-4BE3-AD19-0E483F3D3BE6} = {378A0D8D-CBC1-40B6-A9AC-4D3A47CAA834}
+		{A8057907-F6D0-4740-B2D1-F23208802748} = {EB50C883-BDC6-42C8-B0DB-6BF5F9FE57CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A507E02-BF37-427C-ADBA-F1F65938AFE9}
