@@ -48,15 +48,15 @@ namespace BlazorUI.Services
 
         public async Task<LeaveTypeVM> GetLeaveTypeDetails(int id)
         {
+            await AddBearerToken();
             var leaveType = await _client.LeaveTypesGETAsync(id);
-
             return _mapper.Map<LeaveTypeVM>(leaveType);
         }
 
         public async Task<List<LeaveTypeVM>> GetLeaveTypes()
         {
+            await AddBearerToken();
             var leaveTypes = await _client.LeaveTypesAllAsync();
-
             return _mapper.Map<List<LeaveTypeVM>>(leaveTypes);
         }
 
