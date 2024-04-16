@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Blazored.LocalStorage;
 using BlazorUI.Contracts;
 using BlazorUI.Models.LeaveTypes;
 using BlazorUI.Services.Base;
@@ -8,7 +9,7 @@ namespace BlazorUI.Services
     public class LeaveTypeService: BaseHttpService, ILeaveTypeService
     {
         private readonly IMapper _mapper;
-        public LeaveTypeService(IClient client, IMapper mapper): base(client)
+        public LeaveTypeService(IClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
         {
             this._mapper = mapper;
         }

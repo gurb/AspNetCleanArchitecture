@@ -13,23 +13,20 @@ namespace BlazorUI.Pages.LeaveTypes
         public ILeaveTypeService LeaveTypeService { get; set; }
 
         public List<LeaveTypeVM> LeaveTypes { get; private set; }
-
         public string Message { get; set; } = string.Empty;
 
         protected void CreateLeaveType()
         {
-            NavigationManager.NavigateTo("/leavetypes/create");
+            NavigationManager.NavigateTo("/leavetypes/create/");
         }
 
         protected void AllocateLeaveType(int id)
         {
             // Use Leave Allocation Service here
-
         }
 
         protected void EditLeaveType(int id)
         {
-            // Use Leave Allocation Service here
             NavigationManager.NavigateTo($"/leavetypes/edit/{id}");
         }
 
@@ -38,10 +35,10 @@ namespace BlazorUI.Pages.LeaveTypes
             NavigationManager.NavigateTo($"/leavetypes/details/{id}");
         }
 
-        protected async void DeleteLeaveType(int id)
+        protected async Task DeleteLeaveType(int id)
         {
             var response = await LeaveTypeService.DeleteLeaveType(id);
-            if(response.Success)
+            if (response.Success)
             {
                 StateHasChanged();
             }
