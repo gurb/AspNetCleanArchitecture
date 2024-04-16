@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BlazorUI.Models
+namespace BlazorUI.Models.Authentication
 {
     public class LoginVM
     {

@@ -1,5 +1,5 @@
 ﻿using BlazorUI.Contracts;
-using BlazorUI.Models;
+using BlazorUI.Models.Authentication;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorUI.Pages;

@@ -18,6 +18,7 @@ namespace BlazorUI.Services
         {
             try
             {
+                await AddBearerToken();
                 var createLeaveTypeCommand = _mapper.Map<CreateLeaveTypeCommand>(leaveType);
                 await _client.LeaveTypesPOSTAsync(createLeaveTypeCommand);
                 return new Response<Guid>
