@@ -15,6 +15,7 @@ namespace Persistence.Repositories
         public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails()
         {
             var leaveRequests = await _context.LeaveRequests
+                .Where(x => !string.IsNullOrEmpty(x.RequestingEmployeeId))
                 .Include(x => x.LeaveType)
                 .ToListAsync();
             return leaveRequests;

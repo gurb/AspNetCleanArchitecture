@@ -1,4 +1,5 @@
-﻿using Application.Contracts.Persistence;
+﻿using Application.Contracts.Identity;
+using Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
 using System;
@@ -13,24 +14,46 @@ public class GetLeaveRequestListQueryHandler : IRequestHandler<GetLeaveRequestLi
 {
     private readonly ILeaveRequestRepository _leaveRequestRepository;
     private readonly IMapper _mapper;
+    private readonly IUserService _userService;
 
     public GetLeaveRequestListQueryHandler(ILeaveRequestRepository leaveRequestRepository,
-        IMapper mapper)
+        IMapper mapper, IUserService userService)
     {
         _leaveRequestRepository = leaveRequestRepository;
         _mapper = mapper;
+        _userService = _userService;
     }
 
     public async Task<List<LeaveRequestListDto>> Handle(GetLeaveRequestListQuery request, CancellationToken cancellationToken)
     {
-
-        // Check if it is logged in employee
-
         var leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails();
         var requests = _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
 
 
-        // Fill requests with employee information
+        // Check if it is logged in employee
+        if(request.IsLoggedInUser)
+        {
+            var userId = _userService.UserId;
+            leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails(userId);
+            
+            var employee = await _userService.GetEmployee(userId);
+            requests = _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
+            foreach (var req in requests)
+            {
+                req.Employee = employee;
+            }
+        }
+        else
+        {
+            leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails();
+            requests = _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
+            foreach (var req in requests)
+            {
+                req.Employee = await _userService.GetEmployee(req.RequestingEmployeeId);
+            }
+        }
+
+        
 
         return requests;
 
